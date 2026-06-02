@@ -2,11 +2,10 @@ from rest_framework import serializers
 from .models import Producto, Sabor  
 
 class SaborSerializer(serializers.ModelSerializer):
-    #conteo = 0
-    #if(Producto.estado == True):
-    #    conteo += 1
-#
- #   total_productos = serializers.CharField(source=conteo, read_only=True)
+    conteo = 0
+    if(Producto.estado == True):
+        conteo += 1
+    total_productos = serializers.IntegerField(source="conteo", read_only=True)
     class Meta:
         model = Sabor
         fields = ["id", "nombre","total_productos"]

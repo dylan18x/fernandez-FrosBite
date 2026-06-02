@@ -15,7 +15,7 @@ class SaborViewSet(viewsets.ModelViewSet):
     ordering_fields = ["id", "nombre"]
 
 class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.select_related("marca").all().order_by("-id")
+    queryset = Producto.objects.select_related("sabor").all().order_by("-id")
     serializer_class = ProductoSerializer
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
